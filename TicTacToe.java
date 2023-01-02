@@ -10,10 +10,11 @@ public class TicTacToe {
     private static int playLocation;
     static char player,computer;
     public static Scanner scanner = new Scanner(System.in);
-    static void createBoard(){
-        for(int index = 0 ; index<10 ; index++) {
-            board[index] = ' ';
+    static void createBoard() {
+        for(int i=1;i<10;i++) {
+            board[i]=' ';
         }
+
     }
     static void choice() {
         int turn=(int) (Math.random() * 10) % 2;
@@ -47,6 +48,13 @@ public class TicTacToe {
             System.out.println("Invalid Choice");
         }
     }
+    public static boolean isEmpty() {
+        if (board[playLocation] == ' ') {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public static void main(String[] args) {
 
         System.out.println("----- Welcome To The Game Of Tic Tac Toe -----");
@@ -54,9 +62,9 @@ public class TicTacToe {
         createBoard();
         choice();
         computerChoice();
-//        getPlayerChoice();
         showBoard();
         userMove();
+        isEmpty();
     }
     }
 
